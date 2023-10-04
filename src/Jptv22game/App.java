@@ -18,7 +18,7 @@ public class App{
         System.out.println("--- GuessGame ---");
 
         do {
-            System.out.println("0. Назад в меню");
+            System.out.println("0. Выход");
             System.out.println("1. Сыграть в игру угадай число");
             System.out.println("2. Пополнить баланс");
             System.out.println("Текущий баланс: " + balance);
@@ -75,9 +75,16 @@ public class App{
                         win = true;
                         balance +=10;
                         break;
-                    } else {
-                        System.out.println("Число не угадано. Попробуйте ещё раз.");
-                        balance--; // Снимаем 1 с баланса за неправильную попытку
+                    } else if (userGuess < secretNumber){
+                        System.out.println("Число больше. Попробуйте ещё раз.");
+                        System.out.println("---------------------------");
+                        System.out.println("Минус 1 с баланса");
+                        balance--; 
+                    } else{
+                        System.out.println("Число меньше. Попробуйте ещё раз.");
+                        System.out.println("---------------------------");
+                        System.out.println("Минус 1 с баланса");
+                        balance--;                          
                     }
                 } else {
                     System.out.println("Введите число в диапазоне от 0 до 10.");
@@ -92,11 +99,12 @@ public class App{
             System.out.println("Вы проиграли. Верное число: " + secretNumber);
         }
 
-        System.out.print("Хотите сыграть ещё раз? (Да - любая клавиша, Выйти - q): ");
-        String playAgain = scanner.nextLine().toLowerCase();
-       
-        if ("q".equals(playAgain)) {
-            System.out.println("Игра завершена.");
-        }
+//        System.out.print("Хотите сыграть ещё раз? (Да - любая клавиша, Выйти - q): ");
+//        String playAgain = scanner.nextLine().toLowerCase();
+//       
+//        if ("q".equals(playAgain)) {
+//            System.out.println("Игра завершена.");
+//            
+//        }
     }
 }
